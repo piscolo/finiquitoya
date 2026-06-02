@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Finiquito Chile | FiniquitoYa</title>
+<meta name="description" content="Calcula tu finiquito laboral en Chile gratis. Indemnización, aviso previo, feriado proporcional y gratificación según el Código del Trabajo chileno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c27;
+    --border: rgba(255,255,255,0.07);
+    --accent: #e8ff47;
+    --accent2: #47ffe8;
+    --text: #f0f0f0;
+    --muted: #7a7a8a;
+    --danger: #ff6b6b;
+    --success: #47ffe8;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NOISE TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 2rem 0;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+
+  .logo span { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,255,71,0.1);
+    border: 1px solid rgba(232,255,71,0.25);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge::before { content: '●'; font-size: 0.5rem; }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    font-weight: 300;
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  /* FORM */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  input, select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a7a8a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  select option { background: #1c1c27; }
+
+  input:focus, select:focus { border-color: rgba(232,255,71,0.4); }
+
+  input::placeholder { color: #3a3a4a; }
+
+  /* TIPO DESPIDO PILLS */
+  .tipo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .tipo-pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tipo-pill:hover { border-color: rgba(232,255,71,0.3); }
+
+  .tipo-pill.selected {
+    border-color: var(--accent);
+    background: rgba(232,255,71,0.06);
+  }
+
+  .tipo-pill .tipo-nombre {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .tipo-pill .tipo-art {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .tipo-pill.selected .tipo-nombre { color: var(--accent); }
+
+  /* BUTTON */
+  .btn {
+    width: 100%;
+    background: var(--accent);
+    color: #0a0a0f;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: -0.01em;
+    margin-top: 0.5rem;
+  }
+
+  .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .btn:active { transform: translateY(0); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* RESULTADO */
+  #resultado { display: none; }
+
+  .resultado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .total-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .total-monto {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .tipo-badge {
+    background: rgba(255,107,107,0.1);
+    border: 1px solid rgba(255,107,107,0.2);
+    color: #ff9f9f;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    align-self: flex-start;
+    white-space: nowrap;
+  }
+
+  .tipo-badge.green {
+    background: rgba(71,255,232,0.1);
+    border-color: rgba(71,255,232,0.2);
+    color: var(--accent2);
+  }
+
+  /* DESGLOSE */
+  .desglose { display: flex; flex-direction: column; gap: 0; }
+
+  .desglose-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+
+  .desglose-item:last-child { border-bottom: none; }
+
+  .item-info { flex: 1; }
+
+  .item-nombre {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .item-detalle {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .item-monto {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .item-monto.zero { color: var(--muted); }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: rgba(122,122,138,0.08);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 1.5rem;
+  }
+
+  .disclaimer strong { color: var(--text); }
+
+  /* RESET BTN */
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+  /* ERROR */
+  .error-msg {
+    background: rgba(255,107,107,0.08);
+    border: 1px solid rgba(255,107,107,0.2);
+    color: #ff9f9f;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    margin-top: 0.75rem;
+    display: none;
+  }
+
+  /* AD PLACEHOLDER */
+  .ad-slot {
+    background: var(--surface);
+    border: 1px dashed rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer p { font-size: 0.78rem; color: var(--muted); }
+
+  /* ANIMATE */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate { animation: fadeUp 0.4s ease forwards; }
+
+  /* RESPONSIVE */
+  @media (max-width: 580px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .tipo-grid { grid-template-columns: 1fr; }
+    .card { padding: 1.25rem; }
+    header, .hero, main, footer { padding-left: 1rem; padding-right: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Finiquito<span>Ya</span></div>
+</header>
+
+<section class="hero">
+  <div class="badge">100% gratis · Código del Trabajo Chile</div>
+  <h1>Calcula tu <em>finiquito</em><br>en segundos</h1>
+  <p>Ingresa tus datos y obtén el desglose exacto de lo que te corresponde según la legislación laboral chilena vigente.</p>
+</section>
+
+<!-- AD SLOT TOP -->
+<main>
+  <div class="ad-slot">
+    Espacio publicitario — Google AdSense (728×90)
+  </div>
+
+  <!-- FORMULARIO -->
+  <div class="card" id="formulario">
+    <div class="card-title">Tipo de término</div>
+    <div class="tipo-grid" id="tipoGrid">
+      <div class="tipo-pill selected" data-tipo="161" onclick="seleccionarTipo(this)">
+        <span class="tipo-nombre">Necesidades de la empresa</span>
+        <span class="tipo-art">Art. 161 · Con indemnización</span>
+      </div>
+      <div class="tipo-pill" data-tipo="160" onclick="seleccionarTipo(this)">
+        <span class="tipo-nombre">Falta grave</span>
+        <span class="tipo-art">Art. 160 · Sin indemnización</span>
+      </div>
+      <div class="tipo-pill" data-tipo="renuncia" onclick="seleccionarTipo(this)">
+        <span class="tipo-nombre">Renuncia voluntaria</span>
+        <span class="tipo-art">Sin indemnización por años</span>
+      </div>
+      <div class="tipo-pill" data-tipo="acuerdo" onclick="seleccionarTipo(this)">
+        <span class="tipo-nombre">Mutuo acuerdo</span>
+        <span class="tipo-art">Negociable entre partes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Datos laborales</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Sueldo bruto mensual ($)</label>
+        <input type="number" id="sueldo" placeholder="ej: 800000" min="0">
+      </div>
+      <div class="form-group">
+        <label>Fecha de ingreso</label>
+        <input type="date" id="fechaIngreso">
+      </div>
+      <div class="form-group">
+        <label>Fecha de término</label>
+        <input type="date" id="fechaTermino">
+      </div>
+      <div class="form-group">
+        <label>Días de feriado pendientes</label>
+        <input type="number" id="feriadoPendiente" placeholder="ej: 5" min="0" value="0">
+      </div>
+      <div class="form-group">
+        <label>¿Recibe gratificación legal?</label>
+        <select id="gratificacion">
+          <option value="si">Sí, incluida en el sueldo</option>
+          <option value="no">No, se paga por separado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>¿Empresa pagó aviso previo?</label>
+        <select id="avisoPrevio">
+          <option value="no">No pagó — corresponde compensar</option>
+          <option value="si">Sí, ya lo pagó</option>
+        </select>
+      </div>
+    </div>
+    <div class="error-msg" id="errorMsg"></div>
+    <button class="btn" onclick="calcular()">Calcular finiquito →</button>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="card animate" id="resultado">
+    <div class="resultado-header">
+      <div>
+        <div class="total-label">Total a recibir</div>
+        <div class="total-monto" id="totalMonto">$0</div>
+      </div>
+      <div class="tipo-badge" id="tipoBadge">—</div>
+    </div>
+
+    <div class="card-title">Desglose</div>
+    <div class="desglose" id="desglose"></div>
+
+    <div class="disclaimer">
+      <strong>Aviso importante:</strong> Este cálculo es referencial y no reemplaza asesoría legal profesional. Los montos pueden variar según gratificaciones variables, bonos, horas extras u otros beneficios pactados individualmente. Para disputas laborales, consulte a la Inspección del Trabajo (<strong>600 450 4000</strong>) o a un abogado laboral.
+    </div>
+
+    <button class="btn-secondary" onclick="resetear()">← Calcular otro finiquito</button>
+  </div>
+
+  <!-- AD SLOT BOTTOM -->
+  <div class="ad-slot">
+    Espacio publicitario — Google AdSense (728×90)
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 FiniquitoYa · Calculadora referencial según Código del Trabajo Chile</p>
+  <p>Hecho con ♥ en Chile</p>
+</footer>
+
+<script>
+let tipoSeleccionado = '161';
+
+function seleccionarTipo(el) {
+  document.querySelectorAll('.tipo-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  tipoSeleccionado = el.dataset.tipo;
+}
+
+function formatCLP(n) {
+  return '$' + Math.round(n).toLocaleString('es-CL');
+}
+
+function mostrarError(msg) {
+  const el = document.getElementById('errorMsg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function ocultarError() {
+  document.getElementById('errorMsg').style.display = 'none';
+}
+
+function calcular() {
+  ocultarError();
+
+  const sueldo = parseFloat(document.getElementById('sueldo').value);
+  const fechaIngreso = new Date(document.getElementById('fechaIngreso').value);
+  const fechaTermino = new Date(document.getElementById('fechaTermino').value);
+  const feriadoPendiente = parseInt(document.getElementById('feriadoPendiente').value) || 0;
+  const gratificacion = document.getElementById('gratificacion').value;
+  const avisoPrevioYaPago = document.getElementById('avisoPrevio').value === 'si';
+
+  if (!sueldo || sueldo <= 0) return mostrarError('Ingresa el sueldo bruto mensual.');
+  if (!document.getElementById('fechaIngreso').value) return mostrarError('Ingresa la fecha de ingreso.');
+  if (!document.getElementById('fechaTermino').value) return mostrarError('Ingresa la fecha de término.');
+  if (fechaTermino <= fechaIngreso) return mostrarError('La fecha de término debe ser posterior al ingreso.');
+
+  // Cálculo de años y meses trabajados
+  let anios = fechaTermino.getFullYear() - fechaIngreso.getFullYear();
+  let meses = fechaTermino.getMonth() - fechaIngreso.getMonth();
+  let dias = fechaTermino.getDate() - fechaIngreso.getDate();
+
+  if (dias < 0) { meses--; dias += 30; }
+  if (meses < 0) { anios--; meses += 12; }
+
+  const totalMeses = anios * 12 + meses + (dias >= 15 ? 1 : 0);
+  const aniosParaIndemnizacion = Math.min(Math.floor(totalMeses / 12), 11); // tope 11 años
+
+  const sueldoDiario = sueldo / 30;
+
+  // Items del desglose
+  const items = [];
+  let total = 0;
+
+  // 1. Indemnización por años de servicio
+  if (tipoSeleccionado === '161' || tipoSeleccionado === 'acuerdo') {
+    const indemnizacion = tipoSeleccionado === '161'
+      ? sueldo * aniosParaIndemnizacion
+      : sueldo * aniosParaIndemnizacion; // negociable, base legal
+    const aniosTexto = aniosParaIndemnizacion === 1 ? '1 año' : `${aniosParaIndemnizacion} años`;
+    const topeTexto = totalMeses / 12 > 11 ? ' (tope legal 11 años)' : '';
+    items.push({
+      nombre: 'Indemnización por años de servicio',
+      detalle: `${aniosTexto} × sueldo bruto${topeTexto}`,
+      monto: indemnizacion
+    });
+    total += indemnizacion;
+  } else {
+    items.push({
+      nombre: 'Indemnización por años de servicio',
+      detalle: tipoSeleccionado === '160' ? 'No corresponde — despido por falta grave (art. 160)' : 'No corresponde — renuncia voluntaria',
+      monto: 0
+    });
+  }
+
+  // 2. Aviso previo (sustitutivo de aviso)
+  if ((tipoSeleccionado === '161') && !avisoPrevioYaPago) {
+    items.push({
+      nombre: 'Sustitutivo de aviso previo',
+      detalle: '1 mes de sueldo — empresa no otorgó 30 días de aviso',
+      monto: sueldo
+    });
+    total += sueldo;
+  } else if (tipoSeleccionado === '161' && avisoPrevioYaPago) {
+    items.push({
+      nombre: 'Sustitutivo de aviso previo',
+      detalle: 'No corresponde — la empresa ya otorgó aviso con 30 días de anticipación',
+      monto: 0
+    });
+  } else {
+    items.push({
+      nombre: 'Sustitutivo de aviso previo',
+      detalle: 'No corresponde para este tipo de término',
+      monto: 0
+    });
+  }
+
+  // 3. Feriado proporcional
+  // Feriado legal: 15 días hábiles al año = 18 días corridos aprox
+  const mesesTotalesTrabajados = totalMeses;
+  const feriadoLegalAnual = 15; // días hábiles
+  const feriadoPropDias = (feriadoLegalAnual / 12) * (mesesTotalesTrabajados % 12) + feriadoPendiente;
+  const feriadoMonto = sueldoDiario * feriadoPropDias;
+  items.push({
+    nombre: 'Feriado proporcional',
+    detalle: `${Math.round(feriadoPropDias)} días × $${Math.round(sueldoDiario).toLocaleString('es-CL')}/día (incluye ${feriadoPendiente} días pendientes)`,
+    monto: feriadoMonto
+  });
+  total += feriadoMonto;
+
+  // 4. Gratificación proporcional
+  if (gratificacion === 'no') {
+    const mesesEnAno = (fechaTermino.getMonth() - (new Date(fechaTermino.getFullYear(), 0, 1)).getMonth()) + 1;
+    const gratMensual = sueldo * 0.25; // 25% del sueldo como base referencial
+    const gratProp = (gratMensual / 12) * Math.min(mesesEnAno, 12);
+    items.push({
+      nombre: 'Gratificación proporcional',
+      detalle: `Estimación proporcional al tiempo trabajado en el año en curso`,
+      monto: gratProp
+    });
+    total += gratProp;
+  } else {
+    items.push({
+      nombre: 'Gratificación proporcional',
+      detalle: 'Incluida en el sueldo mensual — no corresponde pago adicional',
+      monto: 0
+    });
+  }
+
+  // Render resultado
+  const desgloseEl = document.getElementById('desglose');
+  desgloseEl.innerHTML = '';
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'desglose-item';
+    div.innerHTML = `
+      <div class="item-info">
+        <div class="item-nombre">${item.nombre}</div>
+        <div class="item-detalle">${item.detalle}</div>
+      </div>
+      <div class="item-monto ${item.monto === 0 ? 'zero' : ''}">${item.monto === 0 ? '—' : formatCLP(item.monto)}</div>
+    `;
+    desgloseEl.appendChild(div);
+  });
+
+  document.getElementById('totalMonto').textContent = formatCLP(total);
+
+  const tipoBadge = document.getElementById('tipoBadge');
+  const tipoLabels = {
+    '161': 'Art. 161 — Necesidades empresa',
+    '160': 'Art. 160 — Falta grave',
+    'renuncia': 'Renuncia voluntaria',
+    'acuerdo': 'Mutuo acuerdo'
+  };
+  tipoBadge.textContent = tipoLabels[tipoSeleccionado];
+  tipoBadge.className = 'tipo-badge' + (tipoSeleccionado === '161' || tipoSeleccionado === 'acuerdo' ? ' green' : '');
+
+  // Mostrar resultado
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetear() {
+  document.getElementById('resultado').style.display = 'none';
+  document.getElementById('sueldo').value = '';
+  document.getElementById('fechaIngreso').value = '';
+  document.getElementById('fechaTermino').value = '';
+  document.getElementById('feriadoPendiente').value = '0';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Set fecha término a hoy por defecto
+document.getElementById('fechaTermino').valueAsDate = new Date();
+</script>
+</body>
+</html>

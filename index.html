@@ -377,6 +377,27 @@
 
   .btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
 
+  .btn-whatsapp {
+    width: 100%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
+
   /* ERROR */
   .error-msg {
     background: rgba(255,107,107,0.08);
@@ -531,6 +552,7 @@
       <strong>Aviso importante:</strong> Este cálculo es referencial y no reemplaza asesoría legal profesional. Los montos pueden variar según gratificaciones variables, bonos, horas extras u otros beneficios pactados individualmente. Para disputas laborales, consulte a la Inspección del Trabajo (<strong>600 450 4000</strong>) o a un abogado laboral.
     </div>
 
+    <button class="btn-whatsapp" id="btnWhatsapp" onclick="compartirWhatsapp()">📲 Compartir por WhatsApp</button>
     <button class="btn-secondary" onclick="resetear()">← Calcular otro finiquito</button>
   </div>
 
@@ -707,6 +729,21 @@ function calcular() {
   // Mostrar resultado
   document.getElementById('resultado').style.display = 'block';
   document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function compartirWhatsapp() {
+  const total = document.getElementById("totalMonto").textContent;
+  const tipo = document.getElementById("tipoBadge").textContent;
+  const url = window.location.href.split("?")[0];
+  const texto = `💼 Calculé mi finiquito con FiniquitoYa:
+
+✅ Tipo: ${tipo}
+💰 Total a recibir: ${total}
+
+¿Te despidieron o renunciaste? Calcula lo que te corresponde gratis en:
+${url}`;
+  const waUrl = "https://wa.me/?text=" + encodeURIComponent(texto);
+  window.open(waUrl, "_blank");
 }
 
 function resetear() {

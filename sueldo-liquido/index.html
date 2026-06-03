@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Sueldo Líquido Chile 2026 | Gratis | FiniquitoLab</title>
+<meta name="description" content="Calcula tu sueldo líquido en Chile gratis. Descuentos de AFP, isapre, Fonasa, seguro de cesantía e impuesto único al trabajo según tu sueldo bruto.">
+<meta name="keywords" content="calculadora sueldo liquido chile, sueldo bruto a liquido, descuentos sueldo chile, AFP descuento, isapre fonasa descuento, impuesto unico trabajo chile 2026">
+<meta name="author" content="FiniquitoLab">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://finiquitolab.cl/sueldo-liquido">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finiquitolab.cl/sueldo-liquido">
+<meta property="og:title" content="Calculadora Sueldo Líquido Chile 2026 — Gratis">
+<meta property="og:description" content="¿Cuánto recibirás en tu cuenta? Calcula tu sueldo líquido con todos los descuentos legales chilenos.">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="FiniquitoLab">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora Sueldo Líquido Chile",
+  "description": "Calcula tu sueldo líquido en Chile con todos los descuentos legales: AFP, isapre, Fonasa, seguro cesantía e impuesto único.",
+  "url": "https://finiquitolab.cl/sueldo-liquido",
+  "applicationCategory": "FinanceApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
+  "inLanguage": "es-CL"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f; --surface: #13131a; --surface2: #1c1c27;
+    --border: rgba(255,255,255,0.07); --accent: #e8ff47; --accent2: #47ffe8;
+    --text: #f0f0f0; --muted: #7a7a8a; --danger: #ff6b6b;
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; min-height: 100vh; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+  header { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 2rem 2rem 0; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); text-decoration: none; }
+  .logo span { color: var(--text); }
+  .back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+  .back:hover { color: var(--accent); }
+  .hero { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.25); color: var(--accent); font-size: 0.75rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; margin-bottom: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  .badge::before { content: '●'; font-size: 0.5rem; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 1rem; max-width: 500px; font-weight: 300; }
+  main { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 2rem 4rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .card-title { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px; }
+  .card-title::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 0.8rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+  .label-hint { font-size: 0.72rem; color: #4a4a5a; margin-top: 2px; }
+  input, select { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: var(--font-body); font-size: 0.95rem; padding: 0.7rem 1rem; transition: border-color 0.2s; outline: none; width: 100%; -webkit-appearance: none; appearance: none; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a7a8a' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+  select option { background: #1c1c27; }
+  input:focus, select:focus { border-color: rgba(232,255,71,0.4); }
+  input::placeholder { color: #3a3a4a; }
+  .btn { width: 100%; background: var(--accent); color: #0a0a0f; border: none; border-radius: 12px; font-family: var(--font-display); font-size: 1rem; font-weight: 700; padding: 1rem; cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em; margin-top: 0.5rem; }
+  .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .btn:active { transform: translateY(0); }
+  #resultado { display: none; }
+  .resultado-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .liquido-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .liquido-monto { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+  .pct-badge { background: rgba(71,255,232,0.1); border: 1px solid rgba(71,255,232,0.2); color: var(--accent2); font-size: 0.75rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; align-self: flex-start; white-space: nowrap; }
+  .desglose { display: flex; flex-direction: column; gap: 0; }
+  .desglose-item { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); gap: 1rem; }
+  .desglose-item:last-child { border-bottom: none; }
+  .item-info { flex: 1; }
+  .item-nombre { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .item-detalle { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+  .item-monto { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
+  .item-monto.descuento { color: var(--danger); }
+  .item-monto.total { color: var(--accent); }
+  .item-monto.base { color: var(--text); }
+  .barra-wrap { margin: 1.5rem 0; }
+  .barra-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
+  .barra { height: 10px; background: var(--surface2); border-radius: 100px; overflow: hidden; display: flex; }
+  .barra-liquido { background: var(--accent); border-radius: 100px 0 0 100px; transition: width 0.6s ease; }
+  .barra-desc { background: var(--danger); opacity: 0.7; transition: width 0.6s ease; }
+  .disclaimer { background: rgba(122,122,138,0.08); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-top: 1.5rem; }
+  .disclaimer strong { color: var(--text); }
+  .btn-whatsapp { width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; padding: 1rem; cursor: pointer; transition: all 0.2s; margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
+  .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 12px; font-family: var(--font-body); font-size: 0.85rem; padding: 0.6rem 1.25rem; cursor: pointer; transition: all 0.2s; margin-top: 1rem; width: 100%; }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+  .error-msg { background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.2); color: #ff9f9f; border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.82rem; margin-top: 0.75rem; display: none; }
+  .ad-slot { background: var(--surface); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center; color: var(--muted); font-size: 0.78rem; margin-bottom: 1.5rem; }
+  footer { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.78rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .animate { animation: fadeUp 0.4s ease forwards; }
+  @media (max-width: 580px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .card { padding: 1.25rem; }
+    header, .hero, main, footer { padding-left: 1rem; padding-right: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Finiquito<span>Lab</span></a>
+  <a href="/" class="back">← Volver al inicio</a>
+</header>
+
+<section class="hero">
+  <div class="badge">100% gratis · Chile 2026</div>
+  <h1>¿Cuánto recibirás en tu <em>cuenta</em>?</h1>
+  <p>Ingresa tu sueldo bruto y calcula exactamente cuánto llega a tu bolsillo después de todos los descuentos legales.</p>
+</section>
+
+<main>
+  <div class="ad-slot">Espacio publicitario — Google AdSense</div>
+
+  <div class="card">
+    <div class="card-title">Tus datos</div>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label>Sueldo bruto mensual ($)</label>
+        <input type="number" id="sueldo" placeholder="ej: 800000" min="0">
+        <p class="label-hint">El monto antes de cualquier descuento, según tu contrato</p>
+      </div>
+      <div class="form-group">
+        <label>AFP</label>
+        <select id="afp">
+          <option value="10.58">Capital (10.58%)</option>
+          <option value="10.49">Cuprum (10.49%)</option>
+          <option value="10.65">Habitat (10.65%)</option>
+          <option value="10.58" selected>Modelo (10.58%)</option>
+          <option value="10.58">PlanVital (10.58%)</option>
+          <option value="10.68">Provida (10.68%)</option>
+          <option value="10.65">Uno (10.65%)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Previsión de salud</label>
+        <select id="salud">
+          <option value="7">Fonasa (7%)</option>
+          <option value="7" selected>Isapre (7% base)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tipo de contrato</label>
+        <select id="contrato">
+          <option value="indefinido" selected>Indefinido</option>
+          <option value="plazo">Plazo fijo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>¿Tiene cargas familiares?</label>
+        <select id="cargas">
+          <option value="0" selected>No</option>
+          <option value="1">1 carga</option>
+          <option value="2">2 cargas</option>
+          <option value="3">3 o más cargas</option>
+        </select>
+      </div>
+    </div>
+    <div class="error-msg" id="errorMsg"></div>
+    <button class="btn" onclick="calcular()">Calcular sueldo líquido →</button>
+  </div>
+
+  <div class="card animate" id="resultado">
+    <div class="resultado-header">
+      <div>
+        <div class="liquido-label">Sueldo líquido</div>
+        <div class="liquido-monto" id="liquidoMonto">$0</div>
+      </div>
+      <div class="pct-badge" id="pctBadge">—% del bruto</div>
+    </div>
+
+    <div class="barra-wrap">
+      <div class="barra-label">
+        <span>Líquido</span>
+        <span>Descuentos</span>
+      </div>
+      <div class="barra">
+        <div class="barra-liquido" id="barraLiquido"></div>
+        <div class="barra-desc" id="barraDesc"></div>
+      </div>
+    </div>
+
+    <div class="card-title">Desglose de descuentos</div>
+    <div class="desglose" id="desglose"></div>
+
+    <div class="disclaimer">
+      <strong>Nota:</strong> Este cálculo es referencial. El impuesto único se calcula sobre la base imponible mensual usando las tablas del SII vigentes para 2026. Bonos, horas extra u otros ingresos variables pueden modificar el resultado. Para cálculos exactos consulta a tu empleador o al SII.
+    </div>
+
+    <button class="btn-whatsapp" onclick="compartirWhatsapp()">📲 Compartir por WhatsApp</button>
+    <button class="btn-secondary" onclick="resetear()">← Calcular otro sueldo</button>
+  </div>
+
+  <div class="ad-slot">Espacio publicitario — Google AdSense</div>
+</main>
+
+<footer>
+  <p>© 2026 FiniquitoLab · Calculadoras laborales para Chile</p>
+  <p><a href="/finiquito#privacidad">Política de Privacidad</a> · <a href="/">Todas las calculadoras</a></p>
+</footer>
+
+<script>
+function formatCLP(n) {
+  return '$' + Math.round(n).toLocaleString('es-CL');
+}
+
+function mostrarError(msg) {
+  const el = document.getElementById('errorMsg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function ocultarError() {
+  document.getElementById('errorMsg').style.display = 'none';
+}
+
+// Tabla impuesto único 2026 (UTM mensual ~$68.285 — valores aproximados vigentes)
+// Tramos en pesos mensuales
+const tramosImpuesto = [
+  { desde: 0,        hasta: 863226,   tasa: 0,     rebaja: 0 },
+  { desde: 863226,   hasta: 1918280,  tasa: 0.04,  rebaja: 34529 },
+  { desde: 1918280,  hasta: 3196133,  tasa: 0.08,  rebaja: 111262 },
+  { desde: 3196133,  hasta: 4473987,  tasa: 0.135, rebaja: 287169 },
+  { desde: 4473987,  hasta: 5751840,  tasa: 0.23,  rebaja: 712189 },
+  { desde: 5751840,  hasta: 7668987,  tasa: 0.304, rebaja: 1137815 },
+  { desde: 7668987,  hasta: 200000000,tasa: 0.35,  rebaja: 1490729 },
+];
+
+function calcularImpuesto(baseImponible) {
+  for (const t of tramosImpuesto) {
+    if (baseImponible >= t.desde && baseImponible < t.hasta) {
+      return Math.max(0, baseImponible * t.tasa - t.rebaja);
+    }
+  }
+  return 0;
+}
+
+function calcular() {
+  ocultarError();
+
+  const sueldo = parseFloat(document.getElementById('sueldo').value);
+  const tasaAFP = parseFloat(document.getElementById('afp').value) / 100;
+  const tasaSalud = parseFloat(document.getElementById('salud').value) / 100;
+  const contrato = document.getElementById('contrato').value;
+  const cargas = parseInt(document.getElementById('cargas').value);
+
+  if (!sueldo || sueldo <= 0) return mostrarError('Ingresa tu sueldo bruto mensual.');
+  if (sueldo < 500000) {
+    // Advertencia sueldo mínimo
+  }
+
+  // Descuentos previsionales
+  const descAFP = sueldo * tasaAFP;
+  const descSalud = sueldo * tasaSalud;
+
+  // Seguro cesantía: 0.6% trabajador contrato indefinido, 0% plazo fijo (lo paga solo el empleador)
+  const tasaCesantia = contrato === 'indefinido' ? 0.006 : 0;
+  const descCesantia = sueldo * tasaCesantia;
+
+  // Base imponible para impuesto único
+  const baseImponible = sueldo - descAFP - descSalud - descCesantia;
+
+  // Rebaja por cargas familiares (~$9.000 por carga, aprox)
+  const rebajaCargas = cargas * 9000;
+
+  // Impuesto único
+  const impuesto = Math.max(0, calcularImpuesto(baseImponible) - rebajaCargas);
+
+  // Total descuentos y líquido
+  const totalDescuentos = descAFP + descSalud + descCesantia + impuesto;
+  const liquido = sueldo - totalDescuentos;
+  const pctLiquido = ((liquido / sueldo) * 100).toFixed(1);
+
+  // Render
+  document.getElementById('liquidoMonto').textContent = formatCLP(liquido);
+  document.getElementById('pctBadge').textContent = pctLiquido + '% del bruto';
+
+  // Barra
+  document.getElementById('barraLiquido').style.width = pctLiquido + '%';
+  document.getElementById('barraDesc').style.width = (100 - pctLiquido) + '%';
+
+  // Desglose
+  const items = [
+    { nombre: 'Sueldo bruto', detalle: 'Monto según contrato antes de descuentos', monto: sueldo, tipo: 'base' },
+    { nombre: 'AFP', detalle: `${(tasaAFP*100).toFixed(2)}% del sueldo bruto — ahorro previsional`, monto: -descAFP, tipo: 'descuento' },
+    { nombre: 'Salud (Fonasa/Isapre)', detalle: `${(tasaSalud*100).toFixed(0)}% del sueldo bruto`, monto: -descSalud, tipo: 'descuento' },
+    { nombre: 'Seguro de cesantía', detalle: contrato === 'indefinido' ? '0.6% del sueldo bruto — contrato indefinido' : 'No descuenta al trabajador — contrato a plazo fijo', monto: -descCesantia, tipo: 'descuento' },
+    { nombre: 'Impuesto único al trabajo', detalle: impuesto === 0 ? 'No aplica — sueldo bajo el primer tramo exento' : `Calculado sobre base imponible de ${formatCLP(baseImponible)}`, monto: -impuesto, tipo: 'descuento' },
+    { nombre: 'Sueldo líquido', detalle: `Lo que llega a tu cuenta bancaria cada mes`, monto: liquido, tipo: 'total' },
+  ];
+
+  const desgloseEl = document.getElementById('desglose');
+  desgloseEl.innerHTML = '';
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'desglose-item';
+    const esDesc = item.monto < 0;
+    const montoDisplay = item.monto === 0 ? '—' : (esDesc ? '-' + formatCLP(Math.abs(item.monto)) : formatCLP(item.monto));
+    div.innerHTML = `
+      <div class="item-info">
+        <div class="item-nombre">${item.nombre}</div>
+        <div class="item-detalle">${item.detalle}</div>
+      </div>
+      <div class="item-monto ${item.tipo}">${montoDisplay}</div>
+    `;
+    desgloseEl.appendChild(div);
+  });
+
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function compartirWhatsapp() {
+  const liquido = document.getElementById('liquidoMonto').textContent;
+  const sueldo = document.getElementById('sueldo').value;
+  const url = 'https://finiquitolab.cl/sueldo-liquido';
+  const texto = `💰 Calculé mi sueldo líquido con FiniquitoLab:\n\n📊 Sueldo bruto: $${parseInt(sueldo).toLocaleString('es-CL')}\n✅ Sueldo líquido: ${liquido}\n\n¿Sabes cuánto recibes tú?\n${url}`;
+  window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+}
+
+function resetear() {
+  document.getElementById('resultado').style.display = 'none';
+  document.getElementById('sueldo').value = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

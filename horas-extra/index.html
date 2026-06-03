@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora Sueldo Líquido Chile 2026 | Gratis | FiniquitoLab</title>
-<meta name="description" content="Calcula tu sueldo líquido en Chile gratis. Descuentos de AFP, isapre, Fonasa, seguro de cesantía e impuesto único al trabajo según tu sueldo bruto.">
-<meta name="keywords" content="calculadora sueldo liquido chile, sueldo bruto a liquido, descuentos sueldo chile, AFP descuento, isapre fonasa descuento, impuesto unico trabajo chile 2026">
+<title>Calculadora Horas Extra Chile 2026 | Gratis | FiniquitoLab</title>
+<meta name="description" content="Calcula el valor de tus horas extraordinarias en Chile. Recargo del 50% según el Código del Trabajo. Gratis y sin registro.">
+<meta name="keywords" content="calculadora horas extra chile, horas extraordinarias chile, recargo horas extra, valor hora extra chile 2026, codigo del trabajo horas extra">
 <meta name="author" content="FiniquitoLab">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://finiquitolab.cl/sueldo-liquido">
+<link rel="canonical" href="https://finiquitolab.cl/horas-extra">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://finiquitolab.cl/sueldo-liquido">
-<meta property="og:title" content="Calculadora Sueldo Líquido Chile 2026 — Gratis">
-<meta property="og:description" content="¿Cuánto recibirás en tu cuenta? Calcula tu sueldo líquido con todos los descuentos legales chilenos.">
+<meta property="og:url" content="https://finiquitolab.cl/horas-extra">
+<meta property="og:title" content="Calculadora Horas Extra Chile 2026 — Gratis">
+<meta property="og:description" content="¿Te están pagando bien las horas extra? Calcula el valor exacto con el recargo legal del 50%.">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="FiniquitoLab">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Calculadora Sueldo Líquido Chile",
-  "description": "Calcula tu sueldo líquido en Chile con todos los descuentos legales: AFP, isapre, Fonasa, seguro cesantía e impuesto único.",
-  "url": "https://finiquitolab.cl/sueldo-liquido",
+  "name": "Calculadora Horas Extra Chile",
+  "description": "Calcula el valor de tus horas extraordinarias en Chile según el Código del Trabajo con recargo del 50%.",
+  "url": "https://finiquitolab.cl/horas-extra",
   "applicationCategory": "FinanceApplication",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
   "inLanguage": "es-CL"
@@ -47,7 +47,7 @@
   header { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 2rem 2rem 0; display: flex; justify-content: space-between; align-items: center; }
   .logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); text-decoration: none; }
   .logo span { color: var(--text); }
-  .back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+  .back { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .back:hover { color: var(--accent); }
   .hero { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 3rem 2rem 2rem; }
   .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.25); color: var(--accent); font-size: 0.75rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; margin-bottom: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -69,29 +69,31 @@
   select option { background: #1c1c27; }
   input:focus, select:focus { border-color: rgba(232,255,71,0.4); }
   input::placeholder { color: #3a3a4a; }
+  /* Horas counter */
+  .horas-counter { display: flex; align-items: center; gap: 12px; }
+  .counter-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .counter-btn:hover { border-color: rgba(232,255,71,0.4); color: var(--accent); }
+  .counter-input { text-align: center; font-size: 1.1rem; font-weight: 500; }
   .btn { width: 100%; background: var(--accent); color: #0a0a0f; border: none; border-radius: 12px; font-family: var(--font-display); font-size: 1rem; font-weight: 700; padding: 1rem; cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em; margin-top: 0.5rem; }
   .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
   .btn:active { transform: translateY(0); }
   #resultado { display: none; }
   .resultado-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-  .liquido-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .liquido-monto { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
-  .pct-badge { background: rgba(71,255,232,0.1); border: 1px solid rgba(71,255,232,0.2); color: var(--accent2); font-size: 0.75rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; align-self: flex-start; white-space: nowrap; }
-  .desglose { display: flex; flex-direction: column; gap: 0; }
+  .total-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .total-monto { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+  .recargo-badge { background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.25); color: var(--accent); font-size: 0.72rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; align-self: flex-start; }
+  .desglose { display: flex; flex-direction: column; }
   .desglose-item { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); gap: 1rem; }
   .desglose-item:last-child { border-bottom: none; }
   .item-info { flex: 1; }
   .item-nombre { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
   .item-detalle { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
-  .item-monto { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
-  .item-monto.descuento { color: var(--danger); }
-  .item-monto.total { color: var(--accent); }
-  .item-monto.base { color: var(--text); }
-  .barra-wrap { margin: 1.5rem 0; }
-  .barra-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
-  .barra { height: 10px; background: var(--surface2); border-radius: 100px; overflow: hidden; display: flex; }
-  .barra-liquido { background: var(--accent); border-radius: 100px 0 0 100px; transition: width 0.6s ease; }
-  .barra-desc { background: var(--danger); opacity: 0.7; transition: width 0.6s ease; }
+  .item-monto { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .item-monto.muted { color: var(--muted); }
+  /* Info box */
+  .info-box { background: rgba(232,255,71,0.05); border: 1px solid rgba(232,255,71,0.15); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .info-box p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+  .info-box strong { color: var(--accent); }
   .disclaimer { background: rgba(122,122,138,0.08); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-top: 1.5rem; }
   .disclaimer strong { color: var(--text); }
   .btn-whatsapp { width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; padding: 1rem; cursor: pointer; transition: all 0.2s; margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
@@ -121,13 +123,17 @@
 </header>
 
 <section class="hero">
-  <div class="badge">100% gratis · Chile 2026</div>
-  <h1>¿Cuánto recibirás en tu <em>cuenta</em>?</h1>
-  <p>Ingresa tu sueldo bruto y calcula exactamente cuánto llega a tu bolsillo después de todos los descuentos legales.</p>
+  <div class="badge">Recargo 50% · Código del Trabajo Chile</div>
+  <h1>¿Te están pagando bien<br>las <em>horas extra</em>?</h1>
+  <p>Calcula el valor exacto de tus horas extraordinarias según la legislación laboral chilena vigente.</p>
 </section>
 
 <main>
   <div class="ad-slot">Espacio publicitario — Google AdSense</div>
+
+  <div class="info-box">
+    <p>Según el <strong>Art. 32 del Código del Trabajo</strong>, las horas extraordinarias se pagan con un recargo mínimo del <strong>50%</strong> sobre el valor de la hora normal. El máximo legal es <strong>2 horas extra por día</strong> y deben pactarse por escrito.</p>
+  </div>
 
   <div class="card">
     <div class="card-title">Tus datos</div>
@@ -135,77 +141,58 @@
       <div class="form-group full">
         <label>Sueldo bruto mensual ($)</label>
         <input type="number" id="sueldo" placeholder="ej: 800000" min="0">
-        <p class="label-hint">El monto antes de cualquier descuento, según tu contrato</p>
+        <p class="label-hint">El monto antes de descuentos, según tu contrato</p>
       </div>
       <div class="form-group">
-        <label>AFP</label>
-        <select id="afp">
-          <option value="10.58">Capital (10.58%)</option>
-          <option value="10.49">Cuprum (10.49%)</option>
-          <option value="10.65">Habitat (10.65%)</option>
-          <option value="10.58" selected>Modelo (10.58%)</option>
-          <option value="10.58">PlanVital (10.58%)</option>
-          <option value="10.68">Provida (10.68%)</option>
-          <option value="10.65">Uno (10.65%)</option>
+        <label>Jornada semanal pactada</label>
+        <select id="jornada">
+          <option value="40" selected>40 horas (jornada estándar)</option>
+          <option value="45">45 horas</option>
+          <option value="44">44 horas</option>
+          <option value="30">30 horas (media jornada)</option>
+          <option value="20">20 horas</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Previsión de salud</label>
-        <select id="salud">
-          <option value="7">Fonasa (7%)</option>
-          <option value="7" selected>Isapre (7% base)</option>
+        <label>Recargo pactado</label>
+        <select id="recargo">
+          <option value="50" selected>50% (mínimo legal)</option>
+          <option value="75">75%</option>
+          <option value="100">100% (doble)</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Tipo de contrato</label>
-        <select id="contrato">
-          <option value="indefinido" selected>Indefinido</option>
-          <option value="plazo">Plazo fijo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>¿Tiene cargas familiares?</label>
-        <select id="cargas">
-          <option value="0" selected>No</option>
-          <option value="1">1 carga</option>
-          <option value="2">2 cargas</option>
-          <option value="3">3 o más cargas</option>
-        </select>
+      <div class="form-group full">
+        <label>Cantidad de horas extra</label>
+        <div class="horas-counter">
+          <button class="counter-btn" onclick="cambiarHoras(-1)">−</button>
+          <input type="number" id="horasExtra" class="counter-input" value="1" min="1" max="50">
+          <button class="counter-btn" onclick="cambiarHoras(1)">+</button>
+        </div>
+        <p class="label-hint">Máximo legal: 2 horas extra por día · Las fracciones de hora se pagan proporcionalmente</p>
       </div>
     </div>
     <div class="error-msg" id="errorMsg"></div>
-    <button class="btn" onclick="calcular()">Calcular sueldo líquido →</button>
+    <button class="btn" onclick="calcular()">Calcular horas extra →</button>
   </div>
 
   <div class="card animate" id="resultado">
     <div class="resultado-header">
       <div>
-        <div class="liquido-label">Sueldo líquido</div>
-        <div class="liquido-monto" id="liquidoMonto">$0</div>
+        <div class="total-label">Total horas extra</div>
+        <div class="total-monto" id="totalMonto">$0</div>
       </div>
-      <div class="pct-badge" id="pctBadge">—% del bruto</div>
+      <div class="recargo-badge" id="recargoBadge">+50% recargo</div>
     </div>
 
-    <div class="barra-wrap">
-      <div class="barra-label">
-        <span>Líquido</span>
-        <span>Descuentos</span>
-      </div>
-      <div class="barra">
-        <div class="barra-liquido" id="barraLiquido"></div>
-        <div class="barra-desc" id="barraDesc"></div>
-      </div>
-    </div>
-
-    <div class="card-title">Desglose de descuentos</div>
+    <div class="card-title">Desglose</div>
     <div class="desglose" id="desglose"></div>
 
     <div class="disclaimer">
-      <strong>Nota:</strong> Este cálculo es referencial. El impuesto único se calcula sobre la base imponible mensual usando las tablas del SII vigentes para 2026. Bonos, horas extra u otros ingresos variables pueden modificar el resultado. Para cálculos exactos consulta a tu empleador o al SII.
+      <strong>Importante:</strong> Las horas extraordinarias deben acordarse por escrito entre trabajador y empleador. Si tu empleador no las paga correctamente, puedes denunciarlo en la <strong>Inspección del Trabajo</strong> (600 450 4000) o en <a href="https://www.dt.gob.cl" style="color:var(--accent);text-decoration:none;" target="_blank" rel="noopener">dt.gob.cl</a>.
     </div>
 
     <button class="btn-whatsapp" onclick="compartirWhatsapp()">📲 Compartir por WhatsApp</button>
-    <button class="btn-secondary" onclick="resetear()">← Calcular otro sueldo</button>
+    <button class="btn-secondary" onclick="resetear()">← Calcular de nuevo</button>
   </div>
 
   <div class="ad-slot">Espacio publicitario — Google AdSense</div>
@@ -221,6 +208,12 @@ function formatCLP(n) {
   return '$' + Math.round(n).toLocaleString('es-CL');
 }
 
+function cambiarHoras(delta) {
+  const input = document.getElementById('horasExtra');
+  const val = Math.max(1, Math.min(200, parseInt(input.value || 1) + delta));
+  input.value = val;
+}
+
 function mostrarError(msg) {
   const el = document.getElementById('errorMsg');
   el.textContent = msg;
@@ -231,79 +224,65 @@ function ocultarError() {
   document.getElementById('errorMsg').style.display = 'none';
 }
 
-// Tabla impuesto único 2026 (UTM mensual ~$68.285 — valores aproximados vigentes)
-// Tramos en pesos mensuales
-const tramosImpuesto = [
-  { desde: 0,        hasta: 863226,   tasa: 0,     rebaja: 0 },
-  { desde: 863226,   hasta: 1918280,  tasa: 0.04,  rebaja: 34529 },
-  { desde: 1918280,  hasta: 3196133,  tasa: 0.08,  rebaja: 111262 },
-  { desde: 3196133,  hasta: 4473987,  tasa: 0.135, rebaja: 287169 },
-  { desde: 4473987,  hasta: 5751840,  tasa: 0.23,  rebaja: 712189 },
-  { desde: 5751840,  hasta: 7668987,  tasa: 0.304, rebaja: 1137815 },
-  { desde: 7668987,  hasta: 200000000,tasa: 0.35,  rebaja: 1490729 },
-];
-
-function calcularImpuesto(baseImponible) {
-  for (const t of tramosImpuesto) {
-    if (baseImponible >= t.desde && baseImponible < t.hasta) {
-      return Math.max(0, baseImponible * t.tasa - t.rebaja);
-    }
-  }
-  return 0;
-}
-
 function calcular() {
   ocultarError();
 
   const sueldo = parseFloat(document.getElementById('sueldo').value);
-  const tasaAFP = parseFloat(document.getElementById('afp').value) / 100;
-  const tasaSalud = parseFloat(document.getElementById('salud').value) / 100;
-  const contrato = document.getElementById('contrato').value;
-  const cargas = parseInt(document.getElementById('cargas').value);
+  const jornada = parseInt(document.getElementById('jornada').value);
+  const recargo = parseInt(document.getElementById('recargo').value);
+  const horasExtra = parseInt(document.getElementById('horasExtra').value);
 
   if (!sueldo || sueldo <= 0) return mostrarError('Ingresa tu sueldo bruto mensual.');
-  if (sueldo < 500000) {
-    // Advertencia sueldo mínimo
-  }
+  if (!horasExtra || horasExtra <= 0) return mostrarError('Ingresa la cantidad de horas extra.');
 
-  // Descuentos previsionales
-  const descAFP = sueldo * tasaAFP;
-  const descSalud = sueldo * tasaSalud;
+  // Cálculo del valor hora normal
+  // Semanas al mes: 4.333 (52 semanas / 12 meses)
+  const horasMensuales = jornada * 4.333;
+  const valorHoraNormal = sueldo / horasMensuales;
 
-  // Seguro cesantía: 0.6% trabajador contrato indefinido, 0% plazo fijo (lo paga solo el empleador)
-  const tasaCesantia = contrato === 'indefinido' ? 0.006 : 0;
-  const descCesantia = sueldo * tasaCesantia;
+  // Valor hora extra con recargo
+  const factorRecargo = 1 + (recargo / 100);
+  const valorHoraExtra = valorHoraNormal * factorRecargo;
 
-  // Base imponible para impuesto único
-  const baseImponible = sueldo - descAFP - descSalud - descCesantia;
+  // Total
+  const totalHorasExtra = valorHoraExtra * horasExtra;
 
-  // Rebaja por cargas familiares (~$9.000 por carga, aprox)
-  const rebajaCargas = cargas * 9000;
-
-  // Impuesto único
-  const impuesto = Math.max(0, calcularImpuesto(baseImponible) - rebajaCargas);
-
-  // Total descuentos y líquido
-  const totalDescuentos = descAFP + descSalud + descCesantia + impuesto;
-  const liquido = sueldo - totalDescuentos;
-  const pctLiquido = ((liquido / sueldo) * 100).toFixed(1);
-
-  // Render
-  document.getElementById('liquidoMonto').textContent = formatCLP(liquido);
-  document.getElementById('pctBadge').textContent = pctLiquido + '% del bruto';
-
-  // Barra
-  document.getElementById('barraLiquido').style.width = pctLiquido + '%';
-  document.getElementById('barraDesc').style.width = (100 - pctLiquido) + '%';
+  // Render badge
+  document.getElementById('recargoBadge').textContent = `+${recargo}% recargo`;
+  document.getElementById('totalMonto').textContent = formatCLP(totalHorasExtra);
 
   // Desglose
   const items = [
-    { nombre: 'Sueldo bruto', detalle: 'Monto según contrato antes de descuentos', monto: sueldo, tipo: 'base' },
-    { nombre: 'AFP', detalle: `${(tasaAFP*100).toFixed(2)}% del sueldo bruto — ahorro previsional`, monto: -descAFP, tipo: 'descuento' },
-    { nombre: 'Salud (Fonasa/Isapre)', detalle: `${(tasaSalud*100).toFixed(0)}% del sueldo bruto`, monto: -descSalud, tipo: 'descuento' },
-    { nombre: 'Seguro de cesantía', detalle: contrato === 'indefinido' ? '0.6% del sueldo bruto — contrato indefinido' : 'No descuenta al trabajador — contrato a plazo fijo', monto: -descCesantia, tipo: 'descuento' },
-    { nombre: 'Impuesto único al trabajo', detalle: impuesto === 0 ? 'No aplica — sueldo bajo el primer tramo exento' : `Calculado sobre base imponible de ${formatCLP(baseImponible)}`, monto: -impuesto, tipo: 'descuento' },
-    { nombre: 'Sueldo líquido', detalle: `Lo que llega a tu cuenta bancaria cada mes`, monto: liquido, tipo: 'total' },
+    {
+      nombre: 'Sueldo bruto mensual',
+      detalle: 'Base para el cálculo',
+      monto: formatCLP(sueldo),
+      tipo: 'muted'
+    },
+    {
+      nombre: 'Horas mensuales pactadas',
+      detalle: `${jornada} hrs/semana × 4,333 semanas`,
+      monto: Math.round(horasMensuales) + ' hrs',
+      tipo: 'muted'
+    },
+    {
+      nombre: 'Valor hora normal',
+      detalle: `${formatCLP(sueldo)} ÷ ${Math.round(horasMensuales)} horas`,
+      monto: formatCLP(valorHoraNormal),
+      tipo: 'muted'
+    },
+    {
+      nombre: `Valor hora extra (+${recargo}% recargo)`,
+      detalle: `${formatCLP(valorHoraNormal)} × ${factorRecargo.toFixed(2)}`,
+      monto: formatCLP(valorHoraExtra),
+      tipo: ''
+    },
+    {
+      nombre: `Total — ${horasExtra} hora${horasExtra > 1 ? 's' : ''} extra`,
+      detalle: `${formatCLP(valorHoraExtra)} × ${horasExtra} hora${horasExtra > 1 ? 's' : ''}`,
+      monto: formatCLP(totalHorasExtra),
+      tipo: ''
+    },
   ];
 
   const desgloseEl = document.getElementById('desglose');
@@ -311,14 +290,12 @@ function calcular() {
   items.forEach(item => {
     const div = document.createElement('div');
     div.className = 'desglose-item';
-    const esDesc = item.monto < 0;
-    const montoDisplay = item.monto === 0 ? '—' : (esDesc ? '-' + formatCLP(Math.abs(item.monto)) : formatCLP(item.monto));
     div.innerHTML = `
       <div class="item-info">
         <div class="item-nombre">${item.nombre}</div>
         <div class="item-detalle">${item.detalle}</div>
       </div>
-      <div class="item-monto ${item.tipo}">${montoDisplay}</div>
+      <div class="item-monto ${item.tipo}">${item.monto}</div>
     `;
     desgloseEl.appendChild(div);
   });
@@ -328,16 +305,18 @@ function calcular() {
 }
 
 function compartirWhatsapp() {
-  const liquido = document.getElementById('liquidoMonto').textContent;
-  const sueldo = document.getElementById('sueldo').value;
-  const url = 'https://finiquitolab.cl/sueldo-liquido';
-  const texto = `💰 Calculé mi sueldo líquido con FiniquitoLab:\n\n📊 Sueldo bruto: $${parseInt(sueldo).toLocaleString('es-CL')}\n✅ Sueldo líquido: ${liquido}\n\n¿Sabes cuánto recibes tú?\n${url}`;
+  const total = document.getElementById('totalMonto').textContent;
+  const horas = document.getElementById('horasExtra').value;
+  const recargo = document.getElementById('recargo').value;
+  const url = 'https://finiquitolab.cl/horas-extra';
+  const texto = `⏰ Calculé mis horas extra con FiniquitoLab:\n\n📊 ${horas} hora${horas > 1 ? 's' : ''} extra con +${recargo}% de recargo\n💰 Total a cobrar: ${total}\n\n¿Te están pagando bien las tuyas?\n${url}`;
   window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
 }
 
 function resetear() {
   document.getElementById('resultado').style.display = 'none';
   document.getElementById('sueldo').value = '';
+  document.getElementById('horasExtra').value = '1';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
